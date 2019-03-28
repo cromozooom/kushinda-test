@@ -1,0 +1,17 @@
+$sec3-xl-content-width: 55;
+$sec3-xl-content-height: 35rem;
+$sec3-xl-cover-width: 100 - $sec3-xl-content-width;
+
+$sec3-xs-content-width: 100;
+$sec3-xs-content-height: 45rem;
+$sec3-xs-cover-width: 120 - $sec3-xs-content-width;
+
+@import "layout";
+@import "s-xs";
+@import "s-lg";
+
+.svg {
+    svg {
+        height: 200px;
+    }
+}

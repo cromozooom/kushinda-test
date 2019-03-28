@@ -1,0 +1,10 @@
+{{ $bootstrap := resources.Get "scss/bootstrap/bootstrap.scss" }}
+{{ $bootstrapNormal := $bootstrap | resources.ToCSS (dict "targetPath" "custom/bootstrap.css") | resources.PostCSS (dict "config" "postcss.config.js") | resources.Minify}}
+
+
+<style amp-custom>
+    {{ $bootstrapNormal.Content | safeCSS }}
+</style>
+{{/*
+    <link rel="stylesheet" href="{{ $bootstrapNormal.Permalink }}">
+*/}}

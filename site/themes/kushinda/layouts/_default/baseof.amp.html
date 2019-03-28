@@ -1,0 +1,34 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>{{ .Title }}</title>
+
+	<link rel="canonical" href="{{ .Permalink }}">
+	<script async src="https://cdn.ampproject.org/v0.js"></script>
+
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
+	<noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	{{ partial "css/bootstrap-amp.html" . }}
+</head>
+<body>
+	{{ if eq .Page.Params.type "home" }}
+		{{- partial "index-hero.html" . -}}
+		<div class="container p-0">
+			{{- partial "index-section1.html" . -}}
+			{{- partial "index-section2.html" . -}}
+			{{- partial "index-section3.html" . -}}
+			{{- partial "index-section4.html" . -}}
+		</div>
+		{{/*
+		
+		*/}}
+
+
+		{{ else }}
+		{{ block "content" . }}{{ end }}
+	{{ end }}
+</body>
+</html>

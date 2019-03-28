@@ -1,0 +1,10 @@
+$nav-text-logo: lighten(#18224D, 100%);
+.nav {
+	&-logo {
+		--brandColor-logoTxt: #{$nav-text-logo};
+		--brandColor-logoB: #F26A3B;
+		--brandColor-logoF: #FBB03B;
+		height: 25px;
+	}
+
+}

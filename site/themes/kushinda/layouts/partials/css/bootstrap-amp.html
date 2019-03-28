@@ -1,0 +1,13 @@
+{{ $bootstrapAMP := resources.Get "scss/bootstrap/bootstrap-amp.scss" }}
+{{/* BOOTSTRAP */}}
+{{ $bootstrapAMPNormal := $bootstrapAMP | resources.ToCSS (dict "targetPath" "ampcss/bootstrap.css") | resources.PostCSS (dict "config" "postcss.config.js") | resources.Minify }}
+{{ $bootstrapCSSAMP := replace (replace $bootstrapAMPNormal.Content "!important" "") "@-ms-viewport{width:device-width;}" "" }}
+{{ $bootstrapTargetPath := "ampcss/amp-bootstrap.css" }}
+{{ $bootstrapCSSAMPFile := $bootstrapCSSAMP | resources.FromString $bootstrapTargetPath }}
+<!--AMP bootstrap -->
+<style amp-custom>
+    {{ $bootstrapCSSAMPFile.Content | safeCSS }}
+</style>
+
+
+

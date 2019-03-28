@@ -1,0 +1,38 @@
+@import "vars";
+@import "hero/hero";
+@import "section1/section";
+@import "section2/section";
+@import "section3/section";
+@import "section4/section";
+@import "section5/section";
+
+hr.ghost {
+	border-color: transparent;
+}
+
+.section {
+	&_primary {
+		h1, h2, h3, h4, h5, h6 {
+			color: $orange;
+			b {
+				color: $white;
+			}
+		}
+	}
+	&__secondary {
+		h1, h2, h3, h4, h5, h6 {
+			color: $white;
+			b {
+				color: $primary;
+			}
+		}
+	}
+	&__light {
+		h1, h2, h3, h4, h5, h6 {
+			color: $primary;
+			b {
+				color: $orange;
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+$hero-xs-content-width: 100;
+$hero-xs-content-height: 65vh;
+$hero-xs-cover-width: 120 - $hero-xs-content-width;
+
+$hero-xl-content-width: 55;
+$hero-xl-content-height: 85vh;
+$hero-xl-cover-width: 100 - $hero-xl-content-width;
+
+@import "layout";
+@import "hero-xs";
+@import "hero-lg";

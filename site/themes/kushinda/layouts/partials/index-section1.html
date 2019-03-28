@@ -1,0 +1,66 @@
+<!--div class="container-fluid section1 px-0 mx-0"-->
+	<div class="row section section1 section__light px-0">
+		<div class="col px-0 mx-0">
+			<div class="content d-flex flex-column justify-content-center px-4">
+				<div class="wysiwyg mx-auto py-4">
+					<h2 class="h2 lax" data-lax-translate-x="800 25, 500 0" data-lax-opacity="800 0, 500 1"  data-lax-anchor="self">Welcome to <b>Kushinda</b></h2>
+					<hr class="ghost" />
+					<div class="anim lax" data-lax-translate-x="900 25, 500 0" data-lax-opacity="800 0, 500 1"  data-lax-anchor="self">
+						<p>Our goal is to improve the performance of our client’s campaigns using data science, technology and
+							common sense! We understand that each client is unique, so we will spend the time to understand your
+							business, your objectives and goals. Working closely with you to really deliver exceptional results.
+						</p>
+						<p class="mb-0">As an agile Digital Marketing agency with a team of PPC experts, web designers and
+							developers, copywriters, SEO experts, marketing managers and data scientists, we can quickly
+							identify and execute the changes that clients need.</p>
+					</div>
+					<hr class="ghost" />
+					<!-- data-lax-anchor="self" -->
+					<a class='btn-k btn-k__11 btn-k__primary lax'
+						data-lax-translate-x="900 -25, 500 0"
+						data-lax-opacity="800 0, 500 1"
+						data-lax-anchor="self"
+						href='/'>
+						<span class='btn-k--text'>Contact Us</span>
+						<b class='btn-k--icon'>→</b>
+						<span class='btn-k--circle'></span>
+					</a>
+
+				</div>
+			</div>
+			<div class="cover"> </div>
+			<div class="cover1"> </div>
+			<div class="img">
+				{{ $imageResource := ($.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" .Params.section1.img.src ) }}
+				{{ if eq $imageResource nil }}
+					<p class="alert alert-danger mx-4 py-4">
+						You're close. But there is a mistake in the thumb image.
+					</p>
+				{{ else }}
+					{{ $image1600 := ( $imageResource.Fill "1600x550 q80") }}
+					{{ $image200 := ( $imageResource.Resize "200x q80") }}
+					
+					<img
+						class="lax"
+						data-lax-translate-x="800 -50, 300 0"
+						data-lax-anchor="self"	
+
+						height="{{ $image1600.Height }}"
+						width="{{ $image1600.Width }}"
+						data-src="{{ $image1600.RelPermalink }}"
+						srcset="
+							{{ $image1600.RelPermalink }} 300w,
+							{{ $image200.RelPermalink }} 200w
+						"
+						sizes="(max-width: 300px) 100vw, 300px"
+						alt="{{ .Params.hero.img.alt }}">
+				{{ end }}
+			</div>
+
+			{{/*
+				<img class="img" src="https://assets.regus.com/images/nwp/homepage-product-office-space.jpg" alt="img" />
+			
+			*/}}
+		</div>
+	</div>
+<!--/div-->

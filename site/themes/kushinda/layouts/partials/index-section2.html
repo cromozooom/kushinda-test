@@ -1,0 +1,49 @@
+<div class="row section section2 section__secondary px-0">
+	<div class="col px-0 mx-0">
+		<div class="content d-flex flex-column justify-content-center px-4">
+			<div class="wysiwyg mx-auto py-4">
+				<h2 class="h2 lax" data-lax-translate-x="800 -50, 500 0" data-lax-opacity="800 0, 500 1" data-lax-anchor="self">See Measurable <b>Growth and Results</b></h2>
+				<hr class="ghost" />
+				<div class="anim lax" data-lax-translate-x="900 -25, 500 0" data-lax-opacity="800 0, 500 1"  data-lax-anchor="self">
+					<p>We know that not all businesses are the same so we tailor your digital marketing campaigns based on
+						your objectives and KPIs. </p>
+					<p>So, we have a range of bespoke marketing options that can be tailored to every unique aspect of your
+						brand objectives and requirements.</p>
+					<p>Approach to SEO, PPC, Design, Paid Social or Affiliate marketing tools.</p>
+				</div>
+			</div>
+		</div>
+		<div class="graphic"> </div>
+		<div class="cover"> </div>
+		<div class="cover1"> </div>
+		<div class="img">
+			{{ $imageResource := ($.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" .Params.section2.img.src ) }}
+			{{ if eq $imageResource nil }}
+				<p class="alert alert-danger mx-4 py-4">
+					You're close. But there is a mistake in the thumb image.
+				</p>
+			{{ else }}
+				{{ $image1600 := ( $imageResource.Fill "1500x450 BottomRight q80") }}
+				{{ $image200 := ( $imageResource.Resize "200x q80") }}
+				
+				<img
+					class="lax"
+					data-lax-translate-x="800 150, 300 0"
+					data-lax-anchor="self"
+					
+					height="{{ $image1600.Height }}"
+					width="{{ $image1600.Width }}" class="img-fluids"
+					data-src="{{ $image1600.RelPermalink }}"
+					srcset="
+						{{ $image1600.RelPermalink }} 300w,
+						{{ $image200.RelPermalink }} 200w
+					"
+					sizes="(max-width: 300px) 100vw, 300px"
+					alt="{{ .Params.hero.img.alt }}">
+			{{ end }}
+		</div>
+		{{/*
+		
+		*/}}
+	</div>
+</div>

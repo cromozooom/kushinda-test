@@ -1,0 +1,114 @@
+$btn-k-height: 3.5;
+$btn-k-width-10: 10rem;
+$btn-k-width-11: 11rem;
+$btn-k-width-12: 12rem;
+$btn-k-width-13: 13rem;
+$btn-k-width-14: 14rem;
+$btn-k-width-15: 15rem;
+$btn-k-width-16: 16rem;
+$btn-k-width-17: 17rem;
+
+$btn-anim: all 0.35s ease;
+.btn-k {
+	&__10 {
+		--btn-k--width: #{$btn-k-width-10};
+	}
+	&__11 {
+		--btn-k--width: #{$btn-k-width-11};
+	}
+	&__12 {
+		--btn-k--width: #{$btn-k-width-12};
+	}
+	&__13 {
+		--btn-k--width: #{$btn-k-width-13};
+	}
+	&__14 {
+		--btn-k--width: #{$btn-k-width-14};
+	}
+	&__15 {
+		--btn-k--width: #{$btn-k-width-15};
+	}
+	&__16 {
+		--btn-k--width: #{$btn-k-width-16};
+	}
+	&__16 {
+		--btn-k--width: #{$btn-k-width-17};
+	}
+	&__primary {
+		--bg-btn: #{$orange};
+		--fg-btn: #{$white};
+	}
+	&__secondary {
+		--bg-btn: #{$white};
+		--fg-btn: #{$orange};
+	}
+	&__mute-dark {
+		--bg-btn: #7BD0ED;
+		--fg-btn: #{$white};
+	}
+	
+}
+
+.btn-k {
+	position: relative;
+	//background: rgba(0, 0, 0, .3);
+	height: $btn-k-height * 1rem;
+	width: var(--btn-k--width);
+	display: flex;
+	//background: red;
+	&--text {
+		height: $btn-k-height * 1rem;
+		line-height: $btn-k-height * 1rem;
+		display: block;
+		width: 100%;
+		left: 0;
+		top: 0;
+		position: absolute;
+		z-index: 2;
+		color: var(--bg-btn);
+		transition: $btn-anim;
+		font-weight: bold;
+	}
+	&--icon {
+		position: absolute;
+		z-index: 2;
+		right: 0;
+		top: 0;
+		color: var(--fg-btn);
+		width: $btn-k-height * 1rem;
+		line-height: $btn-k-height * 1rem;
+		height: $btn-k-height * 1rem;
+		display: block;
+		text-align: center;
+		transition: $btn-anim;
+	}
+	&--circle {
+		position: absolute;
+		z-index: 1;
+		right: 0;
+		top: 0;
+		width: $btn-k-height * 1rem;
+		height: $btn-k-height * 1rem;
+		display: block;
+		border-radius: $btn-k-height / 6 * 1rem;
+		background: var(--bg-btn);
+		transition: $btn-anim;
+		transform: skewX(-17deg);
+	}
+
+	&:hover {
+		.btn-k {
+			&--circle {
+				width: var(--btn-k--width);
+			}
+			&--text {
+				color: var(--fg-btn);
+				left: 1.5rem;
+			}
+			&--icon {
+				right: .5rem;
+			}
+		}
+	}
+}
+

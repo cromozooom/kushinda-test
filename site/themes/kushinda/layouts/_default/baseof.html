@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link rel="amphtml" href="{{ .Permalink }}amp/" hreflang="en-GB" />
+	<link rel="canonical" href="{{ .Permalink }}">
+
+
+	<title>{{ .Title }}</title>
+	<meta name="description" content="{{ .Params.SEO.metadescription }}">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700|Titillium+Web:300,400,700" rel="stylesheet">
+	{{ partial "css/bootstrap.html" . }}
+</head>
+<body>
+	{{/*
+		*/}}
+	{{- partial "nav.html" . -}}
+	{{ if eq .Page.Params.type "home" }}
+		{{- partial "index-hero.html" . -}}
+		<div class="container-fluid px-0 mx-0">
+			<div class="container-fluid px-0 mx-0">
+				{{- partial "index-section1.html" . -}}
+				{{- partial "index-section2.html" . -}}
+				{{- partial "index-section3.html" . -}}
+			</div>
+			{{- partial "index-section4.html" . -}}
+			{{- partial "index-section5.html" . -}}
+		</div>
+		{{/*
+		*/}}
+
+
+		{{ else }}
+		{{ block "content" . }}{{ end }}
+	{{ end }}
+	<script src="{{.Site.BaseURL}}/js/lax.min.js" ></script>
+	<script>
+			window.onload = function() {
+				lax.setup() // init
+			
+				const updateLax = () => {
+					lax.update(window.scrollY)
+					window.requestAnimationFrame(updateLax)
+				}
+			
+				window.requestAnimationFrame(updateLax)
+			}
+	</script>
+</body>
+</html>

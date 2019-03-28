@@ -1,0 +1,71 @@
+<div class="container-fluid hero section section__primary px-0 mx-0">
+	<div class="row px-0">
+		<div class="col px-0 mx-0">
+			<div class="content d-flex flex-column justify-content-center px-4">
+				<div class="wysiwyg mx-auto py-4">
+					<h1 class="h2 lax"
+						data-lax-translate-x="200 0, 10 -20"
+						data-lax-opacity="200 1, 100 0"
+						data-lax-anchor="self"
+					>{{ .Params.hero.title }}</h1>
+					<hr class="ghost" />
+					<div class="anim lax"
+						data-lax-translate-x="200 0, 10 -20"
+						data-lax-opacity="200 1, 100 0"
+						data-lax-anchor="self"
+					>
+						<p>{{ .Params.hero.wysiwyg }}</p>
+					</div>
+					<div class="cta pt-4 d-flex justify-content-starts lax"
+						data-lax-translate-x="200 0, 10 -20"
+						data-lax-opacity="200 1, 100 0"
+						data-lax-anchor="self"
+					>
+						<!--a class="btn btn-lg btn-outline-success mr-4" href="{{ .Params.hero.ctaLink1 }}">{{ .Params.hero.ctaText1 }}</a>
+						<a class="btn btn-lg btn-warning" href="{{ .Params.hero.ctaLink2 }}">{{ .Params.hero.ctaText2 }}</a-->
+						<a class='btn-k btn-k__11 btn-k__primary mr-4' href='{{ .Params.hero.ctaLink2 }}'>
+							<span class='btn-k--text'>{{ .Params.hero.ctaText2 }}</span>
+							<b class='btn-k--icon'>→</b>
+							<span class='btn-k--circle'></span>
+						</a>
+						<a class='btn-k btn-k__12 btn-k__mute-dark' href='{{ .Params.hero.ctaLink1 }}'>
+							<span class='btn-k--text'>{{ .Params.hero.ctaText1 }}</span>
+							<b class='btn-k--icon'>→</b>
+							<span class='btn-k--circle'></span>
+						</a>
+					</div>
+					<hr class="ghost" />
+					<div class="anim lax"
+						data-lax-translate-x="200 0, 10 -20"
+						data-lax-opacity="200 1, 100 0"
+						data-lax-anchor="self"
+					>
+						<p>or call us <u>+44 07.78336. 3309</u></p>
+					</div>
+				</div>
+			</div>
+			<div class="cover"> </div>
+			<div class="cover1"> </div>
+			<div class="img">
+				{{ $imageResource := ($.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" .Params.hero.img.src ) }}
+				{{ if eq $imageResource nil }}
+					<p class="alert alert-danger mx-4 py-4">
+						You're close. But there is a mistake in the thumb image.
+					</p>
+				{{ else }}
+					{{ $image1600 := ( $imageResource.Fill "1600x800 q80") }}
+					{{ $image200 := ( $imageResource.Resize "200x q80") }}
+					
+					<img height="{{ $image1600.Height }}" width="{{ $image1600.Width }}" class=""
+						data-src="{{ $image1600.RelPermalink }}"
+						srcset="
+							{{ $image1600.RelPermalink }} 300w,
+							{{ $image200.RelPermalink }} 200w
+						"
+						sizes="(max-width: 300px) 100vw, 300px"
+						alt="{{ .Params.hero.img.alt }}">
+				{{ end }}
+			</div>
+		</div>
+	</div>
+</div>

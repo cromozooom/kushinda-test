@@ -1,0 +1,13 @@
+baseURL = "https://marketingdata.ro/dd/kushinda"
+theme = "kushinda"
+title = "New Kushinda Brand"
+defaultContentLanguage = "en"
+googleAnalytics = ""
+languageCode = "en-us"
+paginate = 10
+pluralizelisttitles = "false"
+
+[outputs]
+    index = ["HTML", "AMP"]
+    home = ["HTML", "AMP"]
+    page = ["HTML"]

@@ -1,0 +1,12 @@
+$sec1-xl-content-width: 65;
+$sec1-xl-content-height: 35rem;
+$sec1-xl-cover-width: 100 - $sec1-xl-content-width;
+
+$sec1-xs-content-width: 100;
+$sec1-xs-content-height: 45rem;
+$sec1-xs-cover-width: 120 - $sec1-xs-content-width;
+
+@import "layout";
+@import "s-xs";
+@import "s-lg";
+@import "anim";
